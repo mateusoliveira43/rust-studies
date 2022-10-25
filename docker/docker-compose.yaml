@@ -1,0 +1,19 @@
+services:
+  learn-rust:
+    image: learn-rust
+    container_name: learn-rust
+    hostname: docker
+    build:
+      context: ./docker/
+      args:
+        GROUP_ID: ${GROUP_ID}
+        USER_ID: ${USER_ID}
+        USER_NAME: ${USER_NAME}
+        WORK_DIR: ${WORK_DIR}
+    volumes:
+      - type: bind
+        source: ./
+        target: ${WORK_DIR}/
+
+volumes:
+  learn-rust:
